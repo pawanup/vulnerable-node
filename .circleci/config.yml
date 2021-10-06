@@ -34,7 +34,8 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - snyk/scan
+      - snyk/scan:
+          additional-arguments: '--severity-threshold=high --fail-on=upgradable'
   trufflehog-scan:
     docker:
       - image: 'cimg/python:3.9.6'
